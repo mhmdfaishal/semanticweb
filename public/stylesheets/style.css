@@ -1,0 +1,93 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font: 14px 'Roboto', sans-serif;
+  background: #ECE5C7;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card-profile{
+  margin: auto;
+  padding: 10px;
+}
+.card-title{
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}
+.card-npm{
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.card-img-top{
+  max-width: 200px;
+  max-height: 200px;
+  margin: auto;
+}
+.card-person{
+  padding: 10px;
+  background: #C2DED1;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: auto;
+}
+.card-filter{
+  padding: 10px;
+  background: #C2DED1;
+  border-radius: 10px;
+  width: 20rem;
+  height: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-left: -10px;
+}
+.card-person:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.btn-profile{
+  background: #00B7FF;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}
+.btn-profile:hover{
+  background: #0081b4;
+  color: white;
+}
+
+.pagination-button{
+  margin-top: 10px;
+  justify-content: center !important;
+}
+.page-item a{
+  background: #C2DED1;
+  color: #354259;
+}
+.search-field{
+  max-width: 60%;
+}
+.btn-search{
+  background: #00B7FF;
+  border-radius: 10px;
+  color: white;
+}
+.search-input{
+  border-radius: 10px;
+  background: #FFFFFF;
+  padding: 10px;
+}
+.perusahaan-label{
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}

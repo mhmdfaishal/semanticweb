@@ -1,0 +1,721 @@
+@prefix : <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa> .
+
+<http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#college_at
+:college_at rdf:type owl:ObjectProperty ;
+            rdfs:domain :Person ;
+            rdfs:range :University .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#judul
+:judul rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#nama
+:nama rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#npm
+:npm rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty ;
+     rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#perusahaan
+:perusahaan rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#tahun_bekerja
+:tahun_bekerja rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#tahun_lulus
+:tahun_lulus rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#tahun_masuk
+:tahun_masuk rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#tempat_lahir
+:tempat_lahir rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Person .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#University
+:University rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#Universitas_Padjadjaran
+:Universitas_Padjadjaran rdf:type owl:NamedIndividual ,
+                                  :University .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_1
+:mahasiswa_1 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "Penggunaan Aplikasi RapidMiner untuk Menganalisis Perilaku Pengguna Media Sosial Dalam menentukan Target Pemasaran Secara Efektif: Studi Kasus Media Sosial Instagram"^^xsd:string ;
+             :nama "Harits Muhammad"^^xsd:string ;
+             :npm "140810120015"^^xsd:string ;
+             :perusahaan "PT. Mapan Global Reksa"^^xsd:string ;
+             :tahun_bekerja "2016"^^xsd:string ;
+             :tahun_lulus "2016"^^xsd:string ;
+             :tahun_masuk "2012"^^xsd:string ;
+             :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_10
+:mahasiswa_10 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Sistem Pakar Untuk Menentukan Gaya Belajar Seseorang Menggunakan Metode Forward Chaining Berbasis Web"^^xsd:string ;
+              :nama "Ashila Lunafisa"^^xsd:string ;
+              :npm "140810130058"^^xsd:string ;
+              :perusahaan "PT Telkom Indonesia"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2013"^^xsd:string ;
+              :tempat_lahir "Klaten"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_11
+:mahasiswa_11 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Implementasi Client Server pada Game Multiplayer Menggunakan Steam Online Subsytem dan WLAN"^^xsd:string ;
+              :nama "Dzikra Dzakiyyah"^^xsd:string ;
+              :npm "140810140065"^^xsd:string ;
+              :perusahaan "PT. Digital Semantika Indonesia"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Bandung"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_12
+:mahasiswa_12 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Analisis dan Perancangan Aplikasi Manajemen Traffic Jaringan Internet dengan Standar IEEE 802.11 Berbasis Smartphone Android Menggunakan Protokol Monitoring SNMP (Studi Kasus : Lembaga Kursus Bahasa Inggris New Concept English Education Centre)"^^xsd:string ;
+              :nama "Chafidz Maulana"^^xsd:string ;
+              :npm "140810140010"^^xsd:string ;
+              :perusahaan "Peentar"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_13
+:mahasiswa_13 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Perbandingan Algoritma Djikstra dengan Algoritma Floyd-Marshall pada Kasus Jalur Kendaraan di Unpad Jatinangor"^^xsd:string ;
+              :nama "Muhammad Azhari Marpaung"^^xsd:string ;
+              :npm "140810140002"^^xsd:string ;
+              :perusahaan "Jojonomic"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Bengkulu"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_14
+:mahasiswa_14 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "INTENT RECOGNITION BAHASA INDONESIA PADA BOT PORTAL PRAKTIKUM MENGGUNAKAN CONVOLUTIONAL NEURAL NETWORK"^^xsd:string ;
+              :nama "Risal Falah"^^xsd:string ;
+              :npm "140810140016"^^xsd:string ;
+              :perusahaan "Tokopedia"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Cimahi"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_15
+:mahasiswa_15 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "PENGENALAN ANGKA PADA AKSARA SUNDA MENGGUNAKAN CONVOLUTIONAL NEURAL NETWORK"^^xsd:string ;
+              :nama "Hidayaturrahman"^^xsd:string ;
+              :npm "140810140050"^^xsd:string ;
+              :perusahaan "Bina Nusantara"^^xsd:string ;
+              :tahun_bekerja "2020"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Bukittinggi"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_16
+:mahasiswa_16 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Pengembangan User Interface dan User Experience Portal Laboratorium Menggunakan Metode Goal-Directed Design (Studi Kasus Laboratorium Teknik Informatika Unpad)"^^xsd:string ;
+              :nama "Rifki Muhammad"^^xsd:string ;
+              :npm "140810140020"^^xsd:string ;
+              :perusahaan "Stockbit"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Bogor"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_17
+:mahasiswa_17 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Aplikasi Permainan Edukasi Untuk Anak-Anak Berbasis Desktop"^^xsd:string ;
+              :nama "Gustara Sapto Ajie"^^xsd:string ;
+              :npm "140810140022"^^xsd:string ;
+              :perusahaan "SKK Migas"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_18
+:mahasiswa_18 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "SISTEM INFORMASI LOST AND FOUND CENTER JATINANGOR MENGGUNAKAN COMMUNITY-ORIENTED SYSTEM BERBASIS WEB"^^xsd:string ;
+              :nama "Raka Karim Ramaputra"^^xsd:string ;
+              :npm "140810140057"^^xsd:string ;
+              :perusahaan "Tokopedia"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_19
+:mahasiswa_19 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Sistem Informasi Aktivitas Praktikum di Laboratorium Teknik Informatika"^^xsd:string ;
+              :nama "Agung Kurniawan"^^xsd:string ;
+              :npm "140810140056"^^xsd:string ;
+              :perusahaan "Weekend Inc."^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Solok"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_2
+:mahasiswa_2 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "IMPLEMENTASI PEMODELAN ONTOLOGI DAN PEMBANGUNAN WEB SEMANTIK PADA STUDI KASUS PENCARIAN BUKU DI PERPUSTAKAAN DIGITAL (INFORMATICS E-LIBRARY)"^^xsd:string ;
+             :nama "Benarivo Triadi P"^^xsd:string ;
+             :npm "140810120019"^^xsd:string ;
+             :perusahaan "Atourin"^^xsd:string ;
+             :tahun_bekerja "2019"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2012"^^xsd:string ;
+             :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_20
+:mahasiswa_20 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Analisis Performa Arsitektur Monolith dan Microservices pada Portal Laboratorium Menggunakan Amazon Web Service"^^xsd:string ;
+              :nama "Asep Nur Muhammad"^^xsd:string ;
+              :npm "140810140070"^^xsd:string ;
+              :perusahaan "Tokopedia"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Majalengka"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_21
+:mahasiswa_21 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Sistem Dashboard Perfomance PT Pertamina EP Asset 1 Field Jambi Untuk Monitoring Oil dan Gas"^^xsd:string ;
+              :nama "Yunilucki Siswantari"^^xsd:string ;
+              :npm "140810140013"^^xsd:string ;
+              :perusahaan "PT Telkom Indonesia"^^xsd:string ;
+              :tahun_bekerja "2018"^^xsd:string ;
+              :tahun_lulus "2018"^^xsd:string ;
+              :tahun_masuk "2014"^^xsd:string ;
+              :tempat_lahir "Bajubang"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_22
+:mahasiswa_22 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "ANALISA DAN OPTIMASI PELETAKAN ACCESS POINT UNTUK JARINGAN WIRELESS (STUDI KASUS SMAN 2 CIREBON)"^^xsd:string ;
+              :nama "Fadel Chaidar Fachru"^^xsd:string ;
+              :npm "140810150028"^^xsd:string ;
+              :perusahaan "PT Bank BTPN Tbk"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Kuningan"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_23
+:mahasiswa_23 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "SISTEM INFORMASI PENJUALAN PERLENGKAPAN OLAH RAGA DI TOKO LANGGANAN SPORT BERBASIS WEB"^^xsd:string ;
+              :nama "Fikri Firdaus"^^xsd:string ;
+              :npm "140810150008"^^xsd:string ;
+              :perusahaan "Production House Perceivisual"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Banjar"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_24
+:mahasiswa_24 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "PENGEMBANGAN APLIKASI SIMULASI VIRTUAL REALITY ASUHAN KEPERAWATAN PADA PASIEN ANAK DENGAN PENYAKIT ISPA"^^xsd:string ;
+              :nama "Ikhwanul Murtadlo Nuruzzaman"^^xsd:string ;
+              :npm "140810150031"^^xsd:string ;
+              :perusahaan "Agate International"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Bandung"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_25
+:mahasiswa_25 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "IMPLEMENTASI AUGMENTED REALITY MENGGUNAKAN FLASH CARD SEBAGAI MEDIA PENGENALAN KEBUDAYAAN INDONESIA UNTUK ANAK"^^xsd:string ;
+              :nama "Syafira Predeisyanti"^^xsd:string ;
+              :npm "140810150016"^^xsd:string ;
+              :perusahaan "PT Ultrajaya Milk Industry Tbk."^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Cimahi"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_26
+:mahasiswa_26 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "APLIKASI EXPERT SYSTEM UNTUK MENDIAGNOSA PENYAKIT INFEKSI SALURAN PERNAFASAN AKUT (ISPA) MENGGUNAKAN METODE CERTAINTY FACTOR BERBASIS WEB"^^xsd:string ;
+              :nama "Windy Putri Shabrina"^^xsd:string ;
+              :npm "140810150020"^^xsd:string ;
+              :perusahaan "BCA Finance"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Bogor"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_27
+:mahasiswa_27 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Sistem Informasi Perusahaan Konstruksi Berbasis Web (Studi Kasus PT. Prestress Construction Indonesia)"^^xsd:string ;
+              :nama "Yoshe Zaneta"^^xsd:string ;
+              :npm "140810150060"^^xsd:string ;
+              :perusahaan "PT. Prestress Construction Indonesia"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Jakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_28
+:mahasiswa_28 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Analisis Pengaruh Kompresi String Pendek Dengan BWT-RLE Dalam Aplikasi Chatting Berbasis Android"^^xsd:string ;
+              :nama "Muhamad Ihsan Kamil"^^xsd:string ;
+              :npm "140810150063"^^xsd:string ;
+              :perusahaan "Qontak"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Ciamis"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_29
+:mahasiswa_29 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Klasifikasi emosi dengan data Electroencephalogram menggunakan metode Random Forest"^^xsd:string ;
+              :nama "Rivaldi Ridhla Julviar"^^xsd:string ;
+              :npm "140810150053"^^xsd:string ;
+              :perusahaan "Tokopedia"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Bandung"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_3
+:mahasiswa_3 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "PENGENALAN GESTUR TANGAN BERBASIS WARNA KULIT"^^xsd:string ;
+             :nama "Sopyan Mulyana"^^xsd:string ;
+             :npm "140810130006"^^xsd:string ;
+             :perusahaan "PT Mitrais"^^xsd:string ;
+             :tahun_bekerja "2017"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Purwakarta"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_30
+:mahasiswa_30 rdf:type owl:NamedIndividual ,
+                       :Person ;
+              :college_at :Universitas_Padjadjaran ;
+              :judul "Rancang Bangun Sistem Informasi Unit Kegiatan Mahasiswa di Universitas Padjadjaran Berbasis Web"^^xsd:string ;
+              :nama "Tyara Salsabila"^^xsd:string ;
+              :npm "140810150019"^^xsd:string ;
+              :perusahaan "Neuro English Course, Moonea"^^xsd:string ;
+              :tahun_bekerja "2019"^^xsd:string ;
+              :tahun_lulus "2019"^^xsd:string ;
+              :tahun_masuk "2015"^^xsd:string ;
+              :tempat_lahir "Kuningan"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_4
+:mahasiswa_4 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "Naive Bayes Classifier Untuk Kategori Berita Bahasa Indonesia Berbasis Web"^^xsd:string ;
+             :nama "Carina Sunny Budiono Putri"^^xsd:string ;
+             :npm "140810130001"^^xsd:string ;
+             :perusahaan "PT Mid Solusi Nusantara"^^xsd:string ;
+             :tahun_bekerja "2018"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Bandung"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_5
+:mahasiswa_5 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "Implementasi Data Mining untuk Clustering Etnoinformatika Penamaan Kampung di Kabupaten Garut"^^xsd:string ;
+             :nama "Linda Angela Putri"^^xsd:string ;
+             :npm "140810130004"^^xsd:string ;
+             :perusahaan "PT. Bank Negara Indonesia Tbk."^^xsd:string ;
+             :tahun_bekerja "2017"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Sumedang"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_6
+:mahasiswa_6 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "SISTEM INFORMASI TRACER STUDY BERBASIS WEB MENGGUNAKAN FRAMEWORK LARAVEL"^^xsd:string ;
+             :nama "Isa Abdul Muhyi"^^xsd:string ;
+             :npm "140810120016"^^xsd:string ;
+             :perusahaan "PT. MNC Kabel Mediacom"^^xsd:string ;
+             :tahun_bekerja "2018"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2012"^^xsd:string ;
+             :tempat_lahir "Bengkulu"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_7
+:mahasiswa_7 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "ANALISA DAN PERBANDINGAN KEAMANAN FILE MENGGUNAKAN METODE ENKRIPSI AES DAN RSA"^^xsd:string ;
+             :nama "Irdan Anshari"^^xsd:string ;
+             :npm "140810130040"^^xsd:string ;
+             :perusahaan "PT.ASABRI (PERSERO)"^^xsd:string ;
+             :tahun_bekerja "2019"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Bandung"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_8
+:mahasiswa_8 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "Sistem Informasi Mobile Berbasis Spatial-Temporal Database dan Web Service Sebagai Pendukung Location-Based Service Untuk Pemantauan Lokasi Objek"^^xsd:string ;
+             :nama "Ardhi Rizki Harahap"^^xsd:string ;
+             :npm "140810130042"^^xsd:string ;
+             :perusahaan "Tierraware"^^xsd:string ;
+             :tahun_bekerja "2018"^^xsd:string ;
+             :tahun_lulus "2017"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Medan"^^xsd:string .
+
+
+###  http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#mahasiswa_9
+:mahasiswa_9 rdf:type owl:NamedIndividual ,
+                      :Person ;
+             :college_at :Universitas_Padjadjaran ;
+             :judul "Aplikasi Formulasi Kolam Ikan Tertutup dengan Metode Regresi"^^xsd:string ;
+             :nama "Eben Ezer Naibaho"^^xsd:string ;
+             :npm "140810130031"^^xsd:string ;
+             :perusahaan "Research Assistant-Central Bank of Indonesia"^^xsd:string ;
+             :tahun_bekerja "2019"^^xsd:string ;
+             :tahun_lulus "2018"^^xsd:string ;
+             :tahun_masuk "2013"^^xsd:string ;
+             :tempat_lahir "Cirebon"^^xsd:string .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_1
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_10
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_11
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_12
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_13
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_14
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_15
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_16
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_17
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_18
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_19
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_2
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_20
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_21
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_22
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_23
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_24
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_25
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_26
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_27
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_28
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_29
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_3
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_30
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_4
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_5
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_6
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_7
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_8
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Universitas_Padjadjaran
+                        :mahasiswa_9
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
