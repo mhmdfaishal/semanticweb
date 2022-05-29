@@ -45,8 +45,8 @@
                       <% angkatan.forEach((mahasiswa,idx) => { %>
                         <div class="custom-control custom-checkbox">
                           <span class="float-right badge badge-light round"><%= mahasiswa.jumlah %></span>
-                            <input type="checkbox" class="custom-control-input" id="Check<%= idx+1 %>">
-                            <label class="custom-control-label" for="Check<%= idx+1 %>"><%= mahasiswa.tahun_masuk %></label>
+                            <input type="checkbox" <%= query.masuk && query.masuk === mahasiswa.tahun_masuk ? "checked" : ''   %> class="custom-control-input filter_masuk" value="<%= mahasiswa.tahun_masuk %>" id="masuk<%= idx+1 %>">
+                            <label class="custom-control-label" for="masuk<%= idx+1 %>"><%= mahasiswa.tahun_masuk %></label>
                         </div> <!-- form-check.// -->
                       <% }) %>
               
@@ -62,8 +62,8 @@
                       <% lulus.forEach((mahasiswa,idx) => { %>
                         <div class="custom-control custom-checkbox">
                           <span class="float-right badge badge-light round"><%= mahasiswa.jumlah %></span>
-                            <input type="checkbox" class="custom-control-input" id="Check<%= idx+1 %>">
-                            <label class="custom-control-label" for="Check<%= idx+1 %>"><%= mahasiswa.tahun_lulus %></label>
+                            <input type="checkbox" <%= query.lulus && query.lulus === mahasiswa.tahun_lulus ? "checked" : ''   %> class="custom-control-input filter_lulus" value="<%= mahasiswa.tahun_lulus %>" id="lulus<%= idx+1 %>">
+                            <label class="custom-control-label" for="lulus<%= idx+1 %>"><%= mahasiswa.tahun_lulus %></label>
                         </div> <!-- form-check.// -->
                       <% }) %>
                     </div> <!-- card-body.// -->
@@ -78,8 +78,8 @@
                       <% perusahaan.forEach((mahasiswa,idx) => { %>
                         <div class="custom-control custom-checkbox">
                           <span class="float-right badge badge-light round"><%= mahasiswa.jumlah %></span>
-                            <input type="checkbox" class="custom-control-input" id="Check<%= idx+1 %>">
-                            <label class="custom-control-label perusahaan-label" for="Check<%= idx+1 %>"><%= mahasiswa.perusahaan %></label>
+                            <input type="checkbox" <%= query.perusahaan && query.perusahaan === mahasiswa.perusahaan ? "checked" : ''   %> class="custom-control-input filter_perusahaan" value="<%= mahasiswa.perusahaan %>" id="perusahaan<%= idx+1 %>">
+                            <label class="custom-control-label perusahaan-label" for="perusahaan<%= idx+1 %>"><%= mahasiswa.perusahaan %></label>
                         </div> <!-- form-check.// -->
                       <% }) %>
                     </div> <!-- card-body.// -->
@@ -88,11 +88,11 @@
               </div> <!-- card.// -->
             </aside> <!-- col.// -->
           </div>
-          <div class="flex-direction-row">
+          <div class="flex-direction-row main-content">
             <form>
               <div class=" d-flex p-5 justify-content-center">
                 <div class="input-group search-field ">
-                    <input type="search" class="form-control search-input" placeholder="Search" name="search" aria-label="Search" aria-describedby="search-addon" />
+                    <input type="search" class="form-control search-input" placeholder="Search" name="search" value="<%= query.search ? query.search : ''   %>" aria-label="Search" aria-describedby="search-addon" />
                     <button type="submit" class="btn btn-search">search</button>
                 </div>
               </div>
@@ -115,16 +115,16 @@
               <nav class="pagination-button d-flex">
                 <ul class="pagination">
                   <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <a class="page-link" <%= query.page && parseInt(query.page) !== 1 ? '' : "disabled" %>" href="?page=<%= query.page && parseInt(query.page) !== 1 ? parseInt(query.page) - 1 : '' %>" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
                   <% for (var page = 1; page <= pageCount; page++) { %>
-                    <li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+                    <li class="page-item <%= parseInt(query.page) === page ? "active" : '' %> "><a class="page-link" href="?page=<%= page %>"><%= page %></a></li>
                   <% } %>
                   <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                    <a class="page-link" <%= query.page && parseInt(query.page) !== pageCount ? '' : "disabled" %> href="?page=<%= query.page && parseInt(query.page) !== pageCount ? parseInt(query.page) + 1 : '' %>" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                       <span class="sr-only">Next</span>
                     </a>
@@ -212,27 +212,6 @@
         $.ajaxSetup({
             headers:
             { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-        });
-        $(document).ready(function(){
-            $('#search').keyup(function(){
-                var query = $(this).val();
-                if(query != '')
-                {
-                    $.ajax({
-                        url:"{{ route('search') }}",
-                        method:"GET",
-                        data:{query:query},
-                        success:function(data){
-                            $('#result').fadeIn();
-                            $('#result').html(data);
-                        }
-                    });
-                }
-            });
-            $(document).on('click', 'li', function(){
-                $('#search').val($(this).text());
-                $('#result').fadeOut();
-            });
         });
     </script>
     <!-- Main JS File -->

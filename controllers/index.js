@@ -21,7 +21,7 @@ const client = new SparqlClient({endpointUrl});
 
 module.exports = {
     index: async function (req,res,next){
-        const query = `
+        var query = `
             PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX xml: <http://www.w3.org/XML/1998/namespace>
@@ -81,7 +81,297 @@ module.exports = {
             } GROUP BY ?company
         `;
         if(req.query.search){
-            const query = `
+            if(req.query.masuk){
+                query = `
+                PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+        
+                SELECT *
+                WHERE {
+                    {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER regex(?nama, "${req.query.search}", "i")
+                        FILTER (?tahun_masuk = "${req.query.masuk}")
+                    }UNION{
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?npm = "${req.query.search}")
+                        FILTER (?tahun_masuk = "${req.query.masuk}")
+                    }
+                }
+            `;
+            }else if(req.query.lulus){
+                query = `
+                PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+        
+                SELECT *
+                WHERE {
+                    {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER regex(?nama, "${req.query.search}", "i")
+                        FILTER (?tahun_lulus = "${req.query.lulus}")
+                    }UNION{
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?npm = "${req.query.search}")
+                        FILTER (?tahun_lulus = "${req.query.lulus}")
+                    }
+                }
+            `;
+            }else if(req.query.perusahan){
+                query = `
+                PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+        
+                SELECT *
+                WHERE {
+                    {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER regex(?nama, "${req.query.search}", "i")
+                        FILTER (?perusahaan = "${req.query.perusahaan}")
+                    }UNION{
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?npm = "${req.query.search}")
+                        FILTER (?perusahaan = "${req.query.perusahaan}")
+                    }
+                }
+            `;
+            }
+            else{
+                query = `
+                PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+        
+                SELECT *
+                WHERE {
+                    {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER regex(?nama, "${req.query.search}", "i")
+                    }UNION{
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?npm = "${req.query.search}")
+                    }
+                    
+                }
+            `;
+            }
+        }else if(req.query.masuk && (!req.query.search || req.query.search === null)){
+            if(req.query.lulus){
+                if(req.query.perusahaan){
+                    query = `
+                        PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+                
+                        SELECT *
+                        WHERE {
+                            ?x mahasiswa:nama ?nama .
+                            ?x mahasiswa:npm ?npm .
+                            ?x mahasiswa:judul ?judul .
+                            ?x mahasiswa:perusahaan ?perusahaan .
+                            ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                            ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                            ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                            ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                            FILTER (?tahun_masuk = "${req.query.masuk}")
+                            FILTER (?tahun_lulus = "${req.query.lulus}")
+                            FILTER (?perusahaan = "${req.query.perusahaan}")
+                        }
+                    `;
+                }else{
+                    query = `
+                        PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+                
+                        SELECT *
+                        WHERE {
+                            ?x mahasiswa:nama ?nama .
+                            ?x mahasiswa:npm ?npm .
+                            ?x mahasiswa:judul ?judul .
+                            ?x mahasiswa:perusahaan ?perusahaan .
+                            ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                            ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                            ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                            ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                            FILTER (?tahun_masuk = "${req.query.masuk}")
+                            FILTER (?tahun_lulus = "${req.query.lulus}")
+                        }
+                    `;
+                }
+            }else if(req.query.perusahaan){
+                query = `
+                    PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+            
+                    SELECT *
+                    WHERE {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?tahun_masuk = "${req.query.masuk}")
+                        FILTER (?perusahaan = "${req.query.perusahaan}")
+                    }
+                `;
+            }
+            else{
+                query = `
+                    PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+            
+                    SELECT *
+                    WHERE {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?tahun_masuk = "${req.query.masuk}")
+                    }
+                `;
+            }
+        }else if(req.query.lulus && ((!req.query.masuk || req.query.masuk === null) && (!req.query.search || req.query.search===null))){
+            if(req.query.perusahaan){
+                query = `
+                    PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+            
+                    SELECT *
+                    WHERE {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?tahun_lulus = "${req.query.lulus}")
+                        FILTER (?perusahaan = "${req.query.perusahaan}")
+                    }
+                `;
+            }else{
+                query = `
+                    PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    BASE <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa>
+            
+                    SELECT *
+                    WHERE {
+                        ?x mahasiswa:nama ?nama .
+                        ?x mahasiswa:npm ?npm .
+                        ?x mahasiswa:judul ?judul .
+                        ?x mahasiswa:perusahaan ?perusahaan .
+                        ?x mahasiswa:tahun_masuk ?tahun_masuk .
+                        ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
+                        ?x mahasiswa:tahun_lulus ?tahun_lulus .
+                        ?x mahasiswa:tempat_lahir ?tempat_lahir .
+                        FILTER (?tahun_lulus = "${req.query.lulus}")
+                    }
+                `;
+            }
+        }else if(req.query.perusahaan && ((!req.query.lulus || req.query.lulus===null) && (!req.query.masuk || req.query.masuk===null) && !req.query.search || req.query.search===null)){
+            query = `
                 PREFIX mahasiswa: <http://www.semanticweb.org/mhmdf/ontologies/2022/4/mahasiswa#>
                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX xml: <http://www.w3.org/XML/1998/namespace>
@@ -99,10 +389,11 @@ module.exports = {
                     ?x mahasiswa:tahun_bekerja ?tahun_bekerja .
                     ?x mahasiswa:tahun_lulus ?tahun_lulus .
                     ?x mahasiswa:tempat_lahir ?tempat_lahir .
-                    FILTER regex(?nama, "${req.query.search}", "i")
+                    FILTER (?perusahaan = "${req.query.perusahaan}")
                 }
             `;
         }
+        
         const stream = await client.query.select(query)
         const stream_angkatan = await client.query.select(query_angkatan)
         const stream_lulus = await client.query.select(query_lulus)
@@ -157,7 +448,8 @@ module.exports = {
                           data: data.slice(page * 8 - 8, page * 8),
                           angkatan,
                           lulus,
-                          perusahaan
+                          perusahaan,
+                          query: req.query
                         });
                     })
                 })
